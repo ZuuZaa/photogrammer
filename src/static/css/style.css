@@ -1,0 +1,19 @@
+body {
+    background-color: whitesmoke;
+}
+#content {
+    margin-top: 60px;
+}
+#navbar {
+    background-color:white;
+    box-shadow: 0 8px 8px -4px rgb(200, 201, 201);
+}
+#index-img {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+}
+#id_shared_users {
+    list-style: none;
+}
