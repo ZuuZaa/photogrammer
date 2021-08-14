@@ -1,12 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from photo.forms import PhotoAddForm
 
 
 def add_photo_view(request):
     context = {}
     if request.method == 'POST':
-        form = PhotoAddForm(request.POST)
+        form = PhotoAddForm(request.POST,request.FILES)
+        print('--------------------------------')
+        print(request.FILES.get('img'))
         if form.is_valid():
+            photo = form.save(commit=False)
+            photo.user = request.user
+            photo.img = request.FILES.get('img')
             form.save()
             return redirect('profile')
     else:

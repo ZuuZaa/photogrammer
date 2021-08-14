@@ -20,13 +20,14 @@ def api_photos_view(request):
         return Response(data=serializers.data)
     
     elif request.method == 'POST':
-        serializer = PhotoSerializer(data=request.data)
-        data = {}
-        if serializer.is_valid():
-            photo = serializer.save()
-        else:
-            data = serializer.errors
-        return Response(data)
+        pass
+        # serializer = PhotoSerializer(data=request.data)
+        # data = {}
+        # if serializer.is_valid():
+        #     photo = serializer.save()
+        # else:
+        #     data = serializer.errors
+        # return Response(data)
 
 @api_view(['GET','PUT','DELETE'])
 def api_photo_detail_view(request, id):

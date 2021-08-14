@@ -15,5 +15,10 @@ body {
     height: auto;
 }
 #id_shared_users {
-    list-style: none;
+    list-style: none;  
+    overflow: scroll; 
+}
+#id_shared_users label{
+display: flex;
+justify-items: left;
 }

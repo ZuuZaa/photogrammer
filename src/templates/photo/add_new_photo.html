@@ -9,7 +9,7 @@
   <div class="col-md-6 col-sm-12 mx-auto mt-3">
     <div class="h3">Add New Photo</div>
     <hr />
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
       {% csrf_token %} {% for field in add_photo_form %}
       <div class="form-group">
         <label for="{{field.id_for_label}}">{{ field.label_tag }}</label>
