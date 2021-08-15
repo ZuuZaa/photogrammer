@@ -6,8 +6,6 @@ def add_photo_view(request):
     context = {}
     if request.method == 'POST':
         form = PhotoAddForm(request.POST,request.FILES)
-        print('--------------------------------')
-        print(request.FILES.get('img'))
         if form.is_valid():
             photo = form.save(commit=False)
             photo.user = request.user
@@ -19,5 +17,6 @@ def add_photo_view(request):
             return redirect('profile')
     else:
         form = PhotoAddForm()
+
     context['add_photo_form'] = form
     return render(request, 'photo/add_new_photo.html', context)

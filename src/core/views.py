@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Q
-from account.models import CustomUser
+from customuser.models import CustomUser
 
 def home_view(request):
     return render(request, 'core/index.html')

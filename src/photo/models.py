@@ -1,5 +1,5 @@
 from django.db import models
-from account.models import CustomUser
+from customuser.models import CustomUser
 
 class Photo(models.Model):
 

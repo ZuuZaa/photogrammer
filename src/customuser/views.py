@@ -4,8 +4,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from account.forms import RegistrationForm, AccountAuthenticationForm
-from account.models import CustomUser
+from customuser.forms import RegistrationForm, AccountAuthenticationForm
+from customuser.models import CustomUser
 from photo.models import Photo
 
 
@@ -78,3 +78,4 @@ def user_profile_view(request, slug):
             return render(request, 'account/user.html', context)
         else:
             return redirect('home')
+

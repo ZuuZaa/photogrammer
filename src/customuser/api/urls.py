@@ -1,5 +1,5 @@
 from django.urls import path
-from account.api.views import (
+from customuser.api.views import (
     api_user_detail_view,
     api_users_view
     )

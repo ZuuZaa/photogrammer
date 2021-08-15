@@ -131,3 +131,4 @@ dmypy.json
 .real_time_messenger_venv/
 
 images
+.vscode

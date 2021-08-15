@@ -31,6 +31,10 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'core.apps.CoreConfig',
+    'customuser.apps.CustomuserConfig',
+    'photo.apps.PhotoConfig',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,11 +44,13 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework.authtoken',
-    'widget_tweaks',
+    'rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
 
-    'core.apps.CoreConfig',
-    'account.apps.AccountConfig',
-    'photo.apps.PhotoConfig',
+    'widget_tweaks',
 ]
 
 REST_FRAMEWORK = {
@@ -52,6 +58,16 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ]
 }
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -98,7 +114,7 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
-AUTH_USER_MODEL = 'account.CustomUser'
+AUTH_USER_MODEL = 'customuser.CustomUser'
 # USER_DETAILS_SERIALIZER = 'account.serializers.UserSerializer'
 AUTH_PASSWORD_VALIDATORS = [
     {

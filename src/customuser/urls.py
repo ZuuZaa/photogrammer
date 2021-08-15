@@ -1,5 +1,5 @@
 from django.urls import path, include
-from account.views import (
+from customuser.views import (
     register_view,
     login_view,
     logout_view,
@@ -8,7 +8,7 @@ from account.views import (
 )
 
 urlpatterns = [
-    path('api/', include('account.api.urls')),
+    path('api/', include('customuser.api.urls')),
 
     path('register', register_view, name="register"),
     path('login', login_view, name="login"),

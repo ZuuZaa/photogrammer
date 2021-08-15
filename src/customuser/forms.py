@@ -4,8 +4,7 @@ from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
 
-
-from account.models import CustomUser
+from customuser.models import CustomUser
 
 
 class RegistrationForm(UserCreationForm):
@@ -30,4 +29,3 @@ class AccountAuthenticationForm(forms.ModelForm):
             password = self.cleaned_data['password']
             if not authenticate(email=email, password=password):
                 raise forms.ValidationError("Invalid login")
-
