@@ -15,10 +15,13 @@ body {
     height: auto;
 }
 #id_shared_users {
-    list-style: none;  
-    overflow: scroll; 
+    list-style: none; 
 }
 #id_shared_users label{
 display: flex;
 justify-items: left;
 }
+
+/* $( document ).ready(function() {
+    $(".filtered").attr('style', 'height:100px;overflow:scroll;');
+  }); */

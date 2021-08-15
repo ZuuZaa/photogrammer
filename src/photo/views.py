@@ -12,6 +12,9 @@ def add_photo_view(request):
             photo = form.save(commit=False)
             photo.user = request.user
             photo.img = request.FILES.get('img')
+            shared_users = request.POST.getlist('shared_users')
+            if shared_users:
+                photo.sharing = True
             form.save()
             return redirect('profile')
     else:
