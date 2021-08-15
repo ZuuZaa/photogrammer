@@ -19,7 +19,7 @@ app.autodiscover_tasks()
 app.conf.beat_shedule = {
     'checking_sharing_end_date': {
         'task':'photo.tasks.check_sharing_end_date',
-        'schedule': crontab(hour=0, minute=0)
+        'schedule': crontab(hour=21, minute=57)
     }
 }
 
