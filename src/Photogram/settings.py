@@ -49,8 +49,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
-
     'widget_tweaks',
+    'django_celery_beat',
+    'django_celery_results',
 ]
 
 REST_FRAMEWORK = {
@@ -111,6 +112,17 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.psycopg2-binary',
+#         'NAME': 'photogram_db',
+#         'USER':'admin',
+#         'PASSWORD': 'admin'),
+#         'HOST': 'postgresdb',
+#         'PORT': '5432'
+#     }
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -160,6 +172,13 @@ MEDIA_URL = '/media/'
 CELERY_TIMEZONE = "Asia/Baku"
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+
+# CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+# CELERY_ACCEPT_CONTENT = ['application/json']
+# CELERY_RESULT_SERIALIZER = 'json'
+# CELERY_TASK_SERIALIZER = 'json'
+
 
 
 # link for heroku deployment
