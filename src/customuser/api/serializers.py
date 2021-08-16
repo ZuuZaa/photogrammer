@@ -3,15 +3,15 @@ from customuser.models import CustomUser
 
 
 class RegistrationSerializer(serializers.ModelSerializer):
+    password2 = serializers.CharField(style = {'input_type': 'password'}, write_only=True)
     class Meta:
-        password2 = serializers.CharField(style = {'input_type': 'password'}, write_only=True)
         model = CustomUser
         fields = ['email', 'first_name', 'last_name', 'password', 'password2']
         extra_kwargs = {
             'password': {'write_only': True},
         }
     def save(self):
-        account = CustomUser.create (
+        account = CustomUser (
         email = self.validated_data['email'],
         first_name = self.validated_data['first_name'],
         last_name = self.validated_data['last_name']
