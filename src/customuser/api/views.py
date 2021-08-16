@@ -3,8 +3,10 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.authtoken.models import Token
 
+
 from customuser.models import CustomUser 
 from customuser.api.serializers import RegistrationSerializer, UserSerializer
+
 
 @api_view(['GET', 'POST'])
 def api_users_view(request):
@@ -24,11 +26,11 @@ def api_users_view(request):
         data = {}
         if serializer.is_valid():
             account = serializer.save()
-            #token = Token.objects.get(user=account).key
+            token = Token.objects.get(user=account).key
             data['email'] = account.email
             data['first_name'] = account.first_name
             data['last_name'] = account.last_name
-            #data['token'] = token
+            data['token'] = token
             data['success'] = f'{account.first_name} {account.last_name} sucsessfully registered.'
         else:
             data = serializer.errors
@@ -36,6 +38,7 @@ def api_users_view(request):
         return Response(data)
 
 @api_view(['GET','PUT','DELETE'])
+
 def api_user_detail_view(request, id):
     try:
         user = CustomUser.objects.get(id=id)
